@@ -24,7 +24,7 @@ function App() {
         </Link>
 
         {/* 🔓 LOGOUT BUTTON */}
-        {isLoggedIn && (
+        /* {isLoggedIn && (
           <button
           type="button"
           className="btn btn-sm logout-btn"
@@ -35,7 +35,7 @@ function App() {
         >
           Logout
         </button>        
-        )}
+        )} */
       </nav>
 
       <Routes>
