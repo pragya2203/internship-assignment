@@ -10,7 +10,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",                 // local Vite
-      "https://internship-assignment-1-4ghe.onrender.com", // Render frontend
+      "https://internship-assignment-2-8azl.onrender.com", // Render frontend
     ],
     credentials: true,
   })
