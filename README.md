@@ -61,7 +61,7 @@ mongod --version  # (if installed locally)
 ### 1. Clone the Repository
 
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/pragya2203/internship-assignment.git
 cd "Minimac Assignment"
 ```
 
@@ -716,13 +716,10 @@ Potential enhancements for future development:
 
 ## 👤 Author
 
-[Your Name]
+Pragya Singh
 
 ## 📄 License
 
 This project is created as part of a technical assignment.
 
----
-
-**Built with ❤️ using React and Node.js**
 
