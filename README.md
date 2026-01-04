@@ -583,14 +583,16 @@ Organization (1) ──────< (Many) Employee
 
 8. **Edit Employees**
 
-![Delete Feature](screenshots/editemployee1.png)
-![Delete Feature](screenshots/editemployee2.png)
+![Edit Feature](screenshots/edit_employee1.png)
+![Edit Feature](screenshots/edit_employee2.png)
+![Edit Feature](screenshots/edit_employee3.png)
 
 9. **Edit and Delete Organization**
    
-![Edit Organization Feature](screenshots/edit_delete_organization.png)
-![Edit Organization Feature](screenshots/edit_organization.png)
-
+![Edit Organization Feature](screenshots/edit_organization1.png)
+![Edit Organization Feature](screenshots/edit_organization2.png)
+![Delete Organization Feature](screenshots/delete_organization1.png)
+![Delete Organization Feature](screenshots/delete_organization2.png)
 
 
 ## 🧪 Testing
