@@ -550,9 +550,7 @@ Organization (1) ──────< (Many) Employee
 
 3. **Add Employee Form** 
 
-![Employee Form](screenshots/addemployee1.png)
-
-![Employee Form](screenshots/addemployee2.png)
+![Employee Form](screenshots/add_employee.png)
 
 
 4. **Organization Management Page** 
