@@ -557,9 +557,9 @@ Organization (1) ──────< (Many) Employee
 
 4. **Organization Management Page** 
 
-![Organization Form](screenshots/organization form.png)
+![Organization Form](screenshots/organization_form.png)
 
-![Organization List](screenshots/organizations list.png)
+![Organization List](screenshots/organizations_list.png)
 
 
 5. **Filter Results** 
@@ -580,8 +580,8 @@ Organization (1) ──────< (Many) Employee
 
 7. **Deleted Employees**
    
-![Delete Feature](screenshots/delete employee.png)
-![Delete Feature](screenshots/deleted employee.png)
+![Delete Feature](screenshots/delete_employee.png)
+![Delete Feature](screenshots/deleted_employee.png)
 
 8. **Edit Employees**
 
