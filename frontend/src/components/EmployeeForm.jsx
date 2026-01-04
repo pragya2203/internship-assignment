@@ -138,132 +138,138 @@ function EmployeeForm({ editingEmployee }) {
           {error && <div className="alert alert-danger">{error}</div>}
 
           <form onSubmit={handleSubmit}>
-            {/* Full Name */}
-            <div className="mb-3">
-              <label className="form-label">Full Name</label>
-              <input
-                className="form-control"
-                name="fullName"
-                value={form.fullName}
-                onChange={handleChange}
-              />
+            <div className="row">
+              {/* Full Name */}
+              <div className="col-12 col-md-6 mb-3">
+                <label className="form-label">Full Name</label>
+                <input
+                  className="form-control"
+                  name="fullName"
+                  value={form.fullName}
+                  onChange={handleChange}
+                />
+              </div>
+
+              {/* Email */}
+              <div className="col-12 col-md-6 mb-3">
+                <label className="form-label">Email</label>
+                <input
+                  className="form-control"
+                  name="email"
+                  value={form.email}
+                  onChange={handleChange}
+                />
+              </div>
+
+              {/* Phone */}
+              <div className="col-12 col-md-6 mb-3">
+                <label className="form-label">Phone</label>
+                <input
+                  className="form-control"
+                  name="phone"
+                  maxLength="10"
+                  value={form.phone}
+                  onChange={(e) =>
+                    setForm({
+                      ...form,
+                      phone: e.target.value.replace(/\D/g, ""),
+                    })
+                  }
+                />
+              </div>
+
+              {/* Position */}
+              <div className="col-12 col-md-6 mb-3">
+                <label className="form-label">Position</label>
+                <input
+                  className="form-control"
+                  name="position"
+                  value={form.position}
+                  onChange={handleChange}
+                />
+              </div>
+
+              {/* Department */}
+              <div className="col-12 col-md-6 mb-3">
+                <label className="form-label">Department</label>
+                <input
+                  className="form-control"
+                  name="department"
+                  value={form.department}
+                  onChange={handleChange}
+                />
+              </div>
+
+              {/* Organization */}
+              <div className="col-12 col-md-6 mb-3">
+                <label className="form-label">Organization</label>
+                <select
+                  className="form-control"
+                  name="organization"
+                  value={form.organization}
+                  onChange={handleChange}
+                >
+                  <option value="">Select organization</option>
+                  {orgs.map((org) => (
+                    <option key={org._id} value={org._id}>
+                      {org.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Joining Date */}
+              <div className="col-12 col-md-6 mb-3">
+                <label className="form-label">Joining Date</label>
+                <input
+                  type="date"
+                  className="form-control"
+                  name="joiningDate"
+                  value={form.joiningDate}
+                  onChange={handleChange}
+                  max={today}
+                />
+              </div>
+
+              {/* Salary */}
+              <div className="col-12 col-md-6 mb-3">
+                <label className="form-label">Salary (optional)</label>
+                <input
+                  type="number"
+                  className="form-control"
+                  name="salary"
+                  value={form.salary}
+                  onChange={handleChange}
+                />
+              </div>
+
+              {/* Status */}
+              <div className="col-12 col-md-6 mb-4">
+                <label className="form-label">Status</label>
+                <select
+                  className="form-control"
+                  name="status"
+                  value={form.status}
+                  onChange={handleChange}
+                >
+                  <option value="Active">Active</option>
+                  <option value="Inactive">Inactive</option>
+                </select>
+              </div>
             </div>
 
-            {/* Email */}
-            <div className="mb-3">
-              <label className="form-label">Email</label>
-              <input
-                className="form-control"
-                name="email"
-                value={form.email}
-                onChange={handleChange}
-              />
+            {/* Submit Button */}
+            <div className="d-grid d-md-flex justify-content-md-end">
+              <button className="btn custom px-5" disabled={loading}>
+                {loading
+                  ? "Saving..."
+                  : editingEmployee
+                    ? "Update Employee"
+                    : "Add Employee"}
+              </button>
             </div>
-
-            {/* Phone */}
-            <div className="mb-3">
-              <label className="form-label">Phone</label>
-              <input
-                className="form-control"
-                name="phone"
-                maxLength="10"
-                value={form.phone}
-                onChange={(e) =>
-                  setForm({
-                    ...form,
-                    phone: e.target.value.replace(/\D/g, ""),
-                  })
-                }
-              />
-            </div>
-
-            {/* Position */}
-            <div className="mb-3">
-              <label className="form-label">Position</label>
-              <input
-                className="form-control"
-                name="position"
-                value={form.position}
-                onChange={handleChange}
-              />
-            </div>
-
-            {/* Department */}
-            <div className="mb-3">
-              <label className="form-label">Department</label>
-              <input
-                className="form-control"
-                name="department"
-                value={form.department}
-                onChange={handleChange}
-              />
-            </div>
-
-            {/* Organization */}
-            <div className="mb-3">
-              <label className="form-label">Organization</label>
-              <select
-                className="form-control"
-                name="organization"
-                value={form.organization}
-                onChange={handleChange}
-              >
-                <option value="">Select organization</option>
-                {orgs.map((org) => (
-                  <option key={org._id} value={org._id}>
-                    {org.name}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            {/* Joining Date */}
-            <div className="mb-3">
-              <label className="form-label">Joining Date</label>
-              <input
-                type="date"
-                className="form-control"
-                name="joiningDate"
-                value={form.joiningDate}
-                onChange={handleChange}
-                max={today}
-              />
-            </div>
-
-            {/* Salary */}
-            <div className="mb-3">
-              <label className="form-label">Salary (optional)</label>
-              <input
-                type="number"
-                className="form-control"
-                name="salary"
-                value={form.salary}
-                onChange={handleChange}
-              />
-            </div>
-
-            {/* Status */}
-            <div className="mb-4">
-              <label className="form-label">Status</label>
-              <select
-                className="form-control"
-                name="status"
-                value={form.status}
-                onChange={handleChange}
-              >
-                <option value="Active">Active</option>
-                <option value="Inactive">Inactive</option>
-              </select>
-            </div>
-
-            <button className="btn custom w-100" disabled={loading}>
-              {loading
-                ? "Saving..."
-                : editingEmployee
-                ? "Update Employee"
-                : "Add Employee"}
-            </button>
           </form>
+
         </div>
       </div>
     </div>

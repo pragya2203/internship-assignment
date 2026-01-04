@@ -15,13 +15,13 @@ function Employees() {
     status: "",
   });
 
-  // 🔹 Fetch organizations for filter dropdown
+  // 🔹 Fetch organizations
   const fetchOrganizations = async () => {
     const res = await api.get("/organizations");
     setOrganizations(res.data);
   };
 
-  // 🔹 Fetch employees with search & filters
+  // 🔹 Fetch employees
   const fetchEmployees = async () => {
     setLoading(true);
 
@@ -43,44 +43,43 @@ function Employees() {
 
   // 🔹 Delete employee
   const handleDelete = async (id) => {
-    const confirmDelete = window.confirm(
-      "Are you sure you want to delete this employee?"
-    );
-    if (!confirmDelete) return;
+    if (!window.confirm("Are you sure you want to delete this employee?"))
+      return;
 
     await api.delete(`/employees/${id}`);
     fetchEmployees();
   };
 
-  // Initial load
   useEffect(() => {
     fetchEmployees();
     fetchOrganizations();
   }, []);
 
-  // 🔹 Auto search
   useEffect(() => {
-    if (search) {
-      fetchEmployees();
-    }
+    if (search) fetchEmployees();
   }, [search]);
 
   return (
     <div className="container mt-4">
-      {/* Header */}
-      <div className="d-flex justify-content-between align-items-center mb-3">
-        <h2>Employees</h2>
-        <Link to="/employees/add" className="btn btn-success custom">
+      {/* ================= HEADER ================= */}
+      <div className="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-2 mb-3">
+        <h2 className="mb-0">Employees</h2>
+
+        {/* Primary CTA – full width only on mobile */}
+        <Link
+          to="/employees/add"
+          className="btn btn-success btn-sm custom"
+        >
           + Add Employee
         </Link>
       </div>
 
-      {/* 🔍 Search & Filters */}
+      {/* ================= SEARCH & FILTERS ================= */}
       <div className="card mb-3">
         <div className="card-body">
           <div className="row g-2">
             {/* Search */}
-            <div className="col-md-4">
+            <div className="col-12 col-md-4">
               <input
                 type="text"
                 className="form-control"
@@ -91,7 +90,7 @@ function Employees() {
             </div>
 
             {/* Organization */}
-            <div className="col-md-3">
+            <div className="col-12 col-md-3">
               <select
                 className="form-select"
                 value={filters.org}
@@ -109,7 +108,7 @@ function Employees() {
             </div>
 
             {/* Department */}
-            <div className="col-md-3">
+            <div className="col-12 col-md-3">
               <input
                 type="text"
                 className="form-control"
@@ -122,7 +121,7 @@ function Employees() {
             </div>
 
             {/* Status */}
-            <div className="col-md-2">
+            <div className="col-12 col-md-2">
               <select
                 className="form-select"
                 value={filters.status}
@@ -137,11 +136,11 @@ function Employees() {
             </div>
           </div>
 
-          {/* Apply Button */}
+          {/* Apply Filters */}
           <div className="row mt-3">
-            <div className="col text-end">
+            <div className="col-12 text-end">
               <button
-                className="btn btn-primary custom"
+                className="btn btn-primary btn-sm custom"
                 onClick={fetchEmployees}
               >
                 Apply Filters
@@ -151,19 +150,26 @@ function Employees() {
         </div>
       </div>
 
-      {/* Employee Table */}
+      {/* ================= EMPLOYEE TABLE ================= */}
       <EmployeeTable
         employees={employees}
         loading={loading}
         onDelete={handleDelete}
       />
 
-      {/* Bottom Actions */}
-      <div className="d-flex justify-content-end gap-2 mt-4">
-        <Link to="/organizations" className="btn btn-primary custom btn-sm">
+      {/* ================= BOTTOM ACTIONS ================= */}
+      <div className="d-flex flex-column flex-md-row justify-content-end gap-2 mt-4">
+        <Link
+          to="/organizations"
+          className="btn btn-primary btn-sm custom"
+        >
           + Add Organization
         </Link>
-        <Link to="/deleted" className="btn btn-danger btn-sm">
+
+        <Link
+          to="/deleted"
+          className="btn btn-danger btn-sm"
+        >
           Deleted Employees
         </Link>
       </div>

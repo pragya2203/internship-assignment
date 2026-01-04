@@ -13,9 +13,7 @@ function AddOrganization() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState("");
 
-  /* ======================
-     FETCH ORGANIZATIONS
-  ====================== */
+  /* FETCH ORGANIZATIONS */
   const fetchOrganizations = async () => {
     const res = await api.get("/organizations");
     setOrganizations(res.data);
@@ -25,9 +23,7 @@ function AddOrganization() {
     fetchOrganizations();
   }, []);
 
-  /* ======================
-     FORM HANDLERS
-  ====================== */
+  /* FORM HANDLERS */
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -56,9 +52,6 @@ function AddOrganization() {
     }
   };
 
-  /* ======================
-     EDIT ORGANIZATION
-  ====================== */
   const handleEdit = (org) => {
     setFormData({
       name: org.name,
@@ -68,15 +61,8 @@ function AddOrganization() {
     setEditingOrgId(org._id);
   };
 
-  /* ======================
-     DELETE ORGANIZATION
-  ====================== */
   const handleDelete = async (id) => {
-    const confirmDelete = window.confirm(
-      "Are you sure you want to delete this organization?"
-    );
-    if (!confirmDelete) return;
-
+    if (!window.confirm("Delete this organization?")) return;
     await api.delete(`/organizations/${id}`);
     fetchOrganizations();
   };
@@ -85,14 +71,12 @@ function AddOrganization() {
     <div className="container mt-5">
       <h2 className="text-center mb-4">Organization Management</h2>
 
-      {/* ======================
-         ADD / EDIT FORM
-      ====================== */}
+      {/* FORM */}
       <div className="row justify-content-center mb-5">
-        <div className="col-md-6">
+        <div className="col-12 col-md-8 col-lg-6">
           <div className="card shadow-sm">
             <div className="card-body">
-              <h5 className="mb-3 text-center">
+              <h5 className="text-center mb-3">
                 {editingOrgId ? "Edit Organization" : "Add Organization"}
               </h5>
 
@@ -103,7 +87,6 @@ function AddOrganization() {
               <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                   <input
-                    type="text"
                     className="form-control"
                     name="name"
                     placeholder="Organization Name"
@@ -115,7 +98,6 @@ function AddOrganization() {
 
                 <div className="mb-3">
                   <input
-                    type="text"
                     className="form-control"
                     name="industry"
                     placeholder="Industry"
@@ -137,8 +119,7 @@ function AddOrganization() {
                   />
                 </div>
 
-            
-                  <button className="btn btn-primary custom w-100" disabled={loading}>
+                <button className="btn custom w-100" disabled={loading}>
                   {loading
                     ? "Saving..."
                     : editingOrgId
@@ -151,9 +132,7 @@ function AddOrganization() {
         </div>
       </div>
 
-      {/* ======================
-         ORGANIZATION TABLE
-      ====================== */}
+      {/* ORGANIZATION LIST */}
       <div className="card shadow-sm">
         <div className="card-body">
           <h5 className="mb-3">All Organizations</h5>
@@ -161,66 +140,75 @@ function AddOrganization() {
           {organizations.length === 0 ? (
             <p className="text-muted">No organizations added yet.</p>
           ) : (
-            <table className="table table-hover align-middle">
-              <thead className="table-light">
-                <tr>
-                  <th>Name</th>
-                  <th>Industry</th>
-                  <th>Description</th>
-                  <th>Created At</th> 
-                  <th className="text-end">Actions</th>
-                </tr>
-              </thead>
-
-              <tbody>
+            <>
+              {/* MOBILE */}
+              <div className="d-block d-md-none">
                 {organizations.map((org) => (
-                  <tr key={org._id}>
-                    <td className="fw-medium">{org.name}</td>
-                    <td>{org.industry}</td>
-                    <td className="text-muted">
-                      {org.description || "-"}
-                    </td>
+                  <div key={org._id} className="card mb-3 shadow-sm">
+                    <div className="card-body">
+                      <h6>{org.name}</h6>
+                      <small className="text-muted">{org.industry}</small>
 
-                    <td>
-                      {new Date(org.createdAt).toLocaleDateString("en-IN", {
-                        day: "2-digit",
-                        month: "short",
-                        year: "numeric",
-                      })}
-                    </td>
+                      <p className="small mt-2">
+                        {org.description || "-"}
+                      </p>
 
-                    <td className="text-end">
-                      <div className="dropdown">
+                      <div className="d-flex justify-content-end gap-2">
                         <button
-                          className="btn btn-light btn-sm"
-                          data-bs-toggle="dropdown"
+                          className="btn btn-outline-primary btn-sm"
+                          onClick={() => handleEdit(org)}
                         >
-                          ⋮
+                          Edit
                         </button>
-                        <ul className="dropdown-menu dropdown-menu-end">
-                          <li>
-                            <button
-                              className="dropdown-item"
-                              onClick={() => handleEdit(org)}
-                            >
-                              Edit
-                            </button>
-                          </li>
-                          <li>
-                            <button
-                              className="dropdown-item text-danger"
-                              onClick={() => handleDelete(org._id)}
-                            >
-                              Delete
-                            </button>
-                          </li>
-                        </ul>
+                        <button
+                          className="btn btn-outline-danger btn-sm"
+                          onClick={() => handleDelete(org._id)}
+                        >
+                          Delete
+                        </button>
                       </div>
-                    </td>
-                  </tr>
+                    </div>
+                  </div>
                 ))}
-              </tbody>
-            </table>
+              </div>
+
+              {/* DESKTOP */}
+              <div className="d-none d-md-block">
+                <table className="table table-hover align-middle">
+                  <thead className="table-light">
+                    <tr>
+                      <th>Name</th>
+                      <th>Industry</th>
+                      <th>Description</th>
+                      <th className="text-end">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {organizations.map((org) => (
+                      <tr key={org._id}>
+                        <td>{org.name}</td>
+                        <td>{org.industry}</td>
+                        <td>{org.description || "-"}</td>
+                        <td className="text-end">
+                          <button
+                            className="btn btn-sm btn-primary custom me-2"
+                            onClick={() => handleEdit(org)}
+                          >
+                            Edit
+                          </button>
+                          <button
+                            className="btn btn-sm btn-outline-danger"
+                            onClick={() => handleDelete(org._id)}
+                          >
+                            Delete
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </>
           )}
         </div>
       </div>

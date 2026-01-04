@@ -104,3 +104,22 @@ input[type="date"] {
   border-color: #dbe3ea;
   cursor: not-allowed;
 }
+
+/* ================= Mobile Friendly Pagination ================= */
+@media (max-width: 576px) {
+  .page-link.custom-pagination {
+    padding: 0.5rem 0.75rem;   /* bigger tap area */
+    font-size: 0.85rem;        /* readable text */
+    min-width: 36px;           /* uniform buttons */
+    text-align: center;
+  }
+
+  .pagination {
+    gap: 4px;                  /* space between buttons */
+  }
+
+  .pagination .page-item {
+    margin: 0;
+  }
+  
+}
