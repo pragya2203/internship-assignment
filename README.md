@@ -537,30 +537,62 @@ Organization (1) ──────< (Many) Employee
 1. **Login/Signup Page** 
 
 ![Login Page](screenshots/login.png)
+
 ![Signup Page](screenshots/signup.png)
 
 
 2. **Employee List/Dashboard** 
 
 ![Home Page](screenshots/home1.png)
+
 ![Home Page](screenshots/home2.png)
 
 
 3. **Add Employee Form** 
 
-![Add Employee Form](screenshots/addemployee1.png)
-![Add Employee Form](screenshots/addemployee2.png)
+![Employee Form](screenshots/addemployee1.png)
+
+![Employee Form](screenshots/addemployee2.png)
+
 
 4. **Organization Management Page** 
 
-![Add Employee Form](screenshots/addemployee1.png)
+![Organization Form](screenshots/organization form.png)
+
+![Organization List](screenshots/organizations list.png)
 
 
-5. **Search and Filter Results** - Demonstrate search and filter functionality
-   - [Screenshot: Search results or filtered employee list]
+5. **Filter Results** 
 
-6. **Deleted Employees Page** - Show the soft-deleted employees view
-   - [Screenshot: Deleted employees page with list of soft-deleted records]
+![Filter Feature](screenshots/filter1.png)
+
+![Filter Feature](screenshots/filter2.png)
+
+![Filter Feature](screenshots/filter3.png)
+
+![Filter Feature](screenshots/filter4.png)
+
+
+6. **Search Results**
+
+![Search Feature](screenshots/search.png)
+
+
+7. **Deleted Employees**
+   
+![Delete Feature](screenshots/delete employee.png)
+![Delete Feature](screenshots/deleted employee.png)
+
+8. **Edit Employees**
+
+![Delete Feature](screenshots/editemployee1.png)
+![Delete Feature](screenshots/editemployee2.png)
+
+9. **Edit and Delete Organization**
+   
+![Edit Organization Feature](screenshots/edit_delete_organization.png)
+![Edit Organization Feature](screenshots/edit_organization.png)
+
 
 
 ## 🧪 Testing
