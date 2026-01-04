@@ -1,0 +1,106 @@
+.navbar.custom {
+  background-color: #0b3c5d; /* same as your button theme */
+  height: 56px;
+  display: flex;
+  align-items: center;
+}
+
+.logout-btn {
+  background-color: #f5f5f5 !important; /* off-white */
+  color: #000000 !important;
+  border: 1px solid #dddddd !important;
+  font-weight: 500;
+}
+
+.logout-btn:hover {
+  background-color: #ededed !important;
+  color: #000000 !important;
+}
+
+input[type="date"] {
+  height: 38px;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+}
+
+
+/* =========================
+   Primary Theme Button
+   Color: #0b3c5d
+========================= */
+
+.btn.custom {
+  background-color: #0b3c5d;
+  border-color: #0b3c5d;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+/* Hover: slightly lighter */
+.btn.custom:hover {
+  background-color: #145a82; /* lighter shade of #0b3c5d */
+  border-color: #145a82;
+  color: #ffffff;
+}
+
+/* Focus (keyboard / click) */
+.btn.custom:focus,
+.btn.custom:active {
+  background-color: #0f4f73;
+  border-color: #0f4f73;
+  box-shadow: 0 0 0 0.2rem rgba(11, 60, 93, 0.35);
+  color: #ffffff;
+}
+
+/* Disabled */
+.btn.custom:disabled {
+  background-color: #0b3c5d;
+  border-color: #0b3c5d;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-success.custom,
+.btn-primary.custom {
+  background-color: #0b3c5d !important;
+  border-color: #0b3c5d !important;
+  color: #ffffff !important;
+}
+
+.btn-success.custom:hover,
+.btn-primary.custom:hover {
+  background-color: #145a82 !important;
+  border-color: #145a82 !important;
+  color: #ffffff !important;
+}
+
+/* =========================
+   Pagination – Theme Style
+   Main Color: #0b3c5d
+========================= */
+
+.page-link.custom-pagination {
+  color: #0b3c5d;
+  background-color: #ffffff;
+  border: 1px solid #0b3c5d;
+  font-weight: 500;
+}
+
+.page-link.custom-pagination:hover {
+  color: #ffffff;
+  background-color: #0b3c5d;
+  border-color: #0b3c5d;
+}
+
+.page-item.active .page-link.custom-pagination {
+  background-color: #0b3c5d;
+  border-color: #0b3c5d;
+  color: #ffffff;
+}
+
+.page-item.disabled .page-link.custom-pagination {
+  color: #9aaec1;
+  background-color: #f8f9fa;
+  border-color: #dbe3ea;
+  cursor: not-allowed;
+}
