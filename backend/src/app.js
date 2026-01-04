@@ -6,10 +6,19 @@ import authRoutes from "./routes/auth.js";
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",                 // local Vite
+      "https://internship-assignment-1-4ghe.onrender.com", // Render frontend
+    ],
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 
-app.use("/api/auth", authRoutes);         // ✅ ADD THIS
+app.use("/api/auth", authRoutes);
 app.use("/api/organizations", organizationRoutes);
 app.use("/api/employees", employeeRoutes);
 
