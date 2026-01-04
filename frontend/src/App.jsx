@@ -22,6 +22,20 @@ function App() {
         <Link className="navbar-brand text-white fw-semibold" to="/">
           EMS
         </Link>
+        
+        {/* 🔓 LOGOUT BUTTON */}
+        {isLoggedIn && (
+          <button
+          type="button"
+          className="btn btn-sm logout-btn"
+          onClick={() => {
+            localStorage.removeItem("token");
+            window.location.href = "/login";
+          }}
+        >
+          Logout
+        </button>        
+        )}
       </nav>
 
       <Routes>
